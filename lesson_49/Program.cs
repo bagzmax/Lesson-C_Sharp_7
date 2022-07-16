@@ -22,7 +22,7 @@ int[,] GetMatrix(int m, int n, int min, int max)
     return matrix;
 }
 
-int[,] FindEvenIndex(int[,] mtrx)
+/* int[,] FindEvenIndex(int[,] mtrx)
 {
     for (int i = 0; i < mtrx.GetLength(0); i+=2)
     {
@@ -32,6 +32,17 @@ int[,] FindEvenIndex(int[,] mtrx)
         } 
     }
     return mtrx;
+} */
+
+void FindEvenIndex(int[,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i+=2)
+    {
+        for (int j = 0; j < arr.GetLength(1); j+=2)
+        {
+            arr[i, j] *= arr[i, j];
+        } 
+    }
 }
 
 void PrintMatrix(int[,] massiv)
@@ -50,5 +61,7 @@ void PrintMatrix(int[,] massiv)
 int[,] result = GetMatrix(3, 3, 1, 10);
 PrintMatrix(result);
 Console.WriteLine();
-int[,] result2 = FindEvenIndex(result);
-PrintMatrix(result2);
+//int[,] result2 = FindEvenIndex(result);
+//PrintMatrix(result2);
+FindEvenIndex(result);
+PrintMatrix(result);
